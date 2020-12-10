@@ -19,7 +19,7 @@ app.use(express.json());
 
 // Rutas
 app.use("/productBooking", productBookingRoutes.router);
-app.use("/registration", userRoutes.router);
+app.use("/users", userRoutes.router);
 
 
 
