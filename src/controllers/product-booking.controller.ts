@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import mongoose from "mongoose";
 
 const ProductBooking = require("../models/product-booking.model");
 
@@ -22,9 +21,6 @@ class ProductBookingController {
 
     public async postBookings(req: Request, res: Response){
         try {
-            // const sendMessage = req.body;
-            // const newMessage = new ProductBooking();
-            // newMessage.message = sendMessage.message;
 
             const message = {
                 name: req.body.name,
