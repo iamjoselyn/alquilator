@@ -1,5 +1,7 @@
 import { Request, Response } from "express";
 import mongoose from "mongoose";
+import jwt from 'jsonwebtoken';
+import data from '../config/config.json';
 
 const UserModel = require("../models/user.model");
 
@@ -92,7 +94,34 @@ class UserController {
             res.sendStatus(404);
         }
     };
+
+    //User authentication
+    public async authUser (req: Request, res: Response) {
+        try {
+            const result: Object | null = await UserModel.findOne(
+                {
+                   email: req.body.email,
+                   password: req.body.password
+                },
+            );
+
+                if ( result === null ) {
+                    // res.sendStatus(401)
+                //    throw new Error('Something bad happened');
+                   res.send("oops error");
+                }
     
+                const token = jwt.sign(
+                    {result}, //se puede meter tambien el password
+                    data.jsonSecret,
+                    {expiresIn: '1h'} 
+                );
+                res.json(token);
+
+        }catch(error) {
+            res.sendStatus(401)
+        }
+    }
 }
 
 export const userController = new UserController();
