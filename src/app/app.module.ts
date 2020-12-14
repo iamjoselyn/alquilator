@@ -10,6 +10,9 @@ import { HomeComponent } from './pages/home/home.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { UserAreaComponent } from './pages/user-area/user-area.component';
+import { UserLoginComponent } from './pages/user-login/user-login.component';
+
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { UserAreaComponent } from './pages/user-area/user-area.component';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    UserAreaComponent
+    UserAreaComponent,
+    UserLoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,7 +31,7 @@ import { UserAreaComponent } from './pages/user-area/user-area.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
