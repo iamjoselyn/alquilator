@@ -8,6 +8,8 @@ class UserRoutes {
     constructor(){
 
         this.router.get("/",  [checkJwt],userController.getUsers);
+        // this.router.get("/:id/products",  [checkJwt], userController.getUserProducts);
+        // para coger todos los productos que haya subido el usuario con id x
         this.router.post("/", userController.postUsers);
         this.router.delete("/", userController.deleteUsers);
         this.router.put("/", userController.updateUsers);

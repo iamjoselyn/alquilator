@@ -13,8 +13,20 @@ const UserModel = require("../models/user.model");
 class UserController {
     public async getUsers(req: Request, res: Response) {
         try {
-            const allUsers = await UserModel.find();
+            const allUsers = await UserModel.find()
+                .populate("productId");
             res.send(allUsers);
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
+    };
+
+    public async getUserProducts (req: Request, res: Response) {
+        try {
+             
+            // que recoja todos los productos publicados por (where) userId sea el que venga por param 
 
         } catch (error) {
             console.log(error);
@@ -31,11 +43,12 @@ class UserController {
                 password: req.body.password,
                 city: req.body.city,
                 province: req.body.province,
-                zipCode: req.body.zipCode
+                zipCode: req.body.zipCode,
             };
 
             const newUser = new UserModel();
-
+            
+            newUser._id = new mongoose.Types.ObjectId();
             newUser.firstName = user.firstName;
             newUser.lastName = user.lastName;
             newUser.email = user.email;
