@@ -108,20 +108,36 @@ class UserController {
         }
     };
 
+    public async getUserByEmail(req: Request, res: Response) {
+        try {
+            const usersByEmail = await UserModel.findOne({
+                email: req.body.email
+            })
+
+            res.json(usersByEmail);
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
+    };
+
     //User authentication
     public async authUser (req: Request, res: Response) {
+        console.log('Llegamos al controller de la ruta');
+        console.log(req.body);
         try {
             const result: Object | null = await UserModel.findOne(
                 {
                    email: req.body.email,
-                   password: req.body.password
+                   password: req.body.pass
                 },
             );
-
+            console.log(result);
                 if ( result === null ) {
                     // res.sendStatus(401)
                 //    throw new Error('Something bad happened');
-                   res.send("oops error");
+                res.status(500).json('oops error');
                 }
     
                 const token = jwt.sign(

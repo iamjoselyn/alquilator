@@ -9,7 +9,7 @@ const ProductSchema = new Schema({
     price: Number,
     pictures: String,
     bookingLength: Number,
-    userId: [{ type: Schema.Types.ObjectId, ref: 'User' }]
+    userId: { type: Schema.Types.ObjectId, ref: 'User' }
 
 });
 

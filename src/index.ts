@@ -1,6 +1,7 @@
 import dotenv from "dotenv";
 import mongoose from 'mongoose';
 import express from "express";
+const cors = require("cors");
 import { productBookingRoutes } from "./routes/product-booking.routes";
 import { userRoutes } from "./routes/user.routes";
 import { productRoutes } from "./routes/product.routes"
@@ -10,6 +11,8 @@ dotenv.config();
 
 // Instanciar express
 const app = express();
+app.use(cors());
+
 
 // Puerto
 app.set("port", process.env.PORT);
