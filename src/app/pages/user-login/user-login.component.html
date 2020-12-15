@@ -1,4 +1,5 @@
-<div class="vh-100">
+<app-header></app-header>
+<div class="vh-100 mt-5 pt-5">
     <form class="container w-50 p-5" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="saveForm()">
       
       <div class="form-group">
@@ -31,6 +32,8 @@
           [class.is-invalid]="passwordInvalid">
       </div>
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" class="btn btn-info">Submit</button>
     </form>
   </div>
+
+  <app-footer></app-footer>

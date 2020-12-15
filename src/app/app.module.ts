@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -12,7 +13,8 @@ import { FooterComponent } from './shared/footer/footer.component';
 import { UserAreaComponent } from './pages/user-area/user-area.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 
-import { AuthService } from './services/auth.service';
+import { AuthService } from './shared/services/auth.service';
+import { UserRegistrationService } from './shared/services/user-registration.service';
 
 @NgModule({
   declarations: [
@@ -29,9 +31,13 @@ import { AuthService } from './services/auth.service';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService, 
+    UserRegistrationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

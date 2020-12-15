@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-user-login',
@@ -43,14 +43,14 @@ export class UserLoginComponent implements OnInit {
     });
   }
 
-  saveForm(): void {
+  async saveForm() {
     console.log(this.formLogin);
     
-    const loginResult = this.auth.login(this.formLogin);
+    const loginResult = await this.auth.login(this.formLogin);
     console.log('el resultado del login es', loginResult);
 
     if (loginResult) {
-      this.router.navigateByUrl('/newpost');
+      this.router.navigateByUrl('/user-area');
     } else {
       alert('Usuario o contraseña incorrecto. Vuelve a intentarlo!');
     }

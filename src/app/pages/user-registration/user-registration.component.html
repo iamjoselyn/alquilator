@@ -16,10 +16,10 @@
                         class="form-control" 
                         type="text" 
                         placeholder="Tu nombre"
-                        formControlName="name"
-                        [class.is-invalid]="invalidName"
+                        formControlName="firstName"
+                        [class.is-invalid]="invalidFirstName"
                     >
-                    <small *ngIf="invalidName" 
+                    <small *ngIf="invalidFirstName" 
                     class="form-text text-danger">
                         El nombre debe tener al menos 3 letras.
                     </small>
@@ -114,7 +114,7 @@
                     [class.is-invalid]="invalidZipCode"
                     >
                     <small *ngIf="invalidZipCode" class="form-text text-danger">
-                        El nombre de la ciudad debe tener al menos 3 caracteres.
+                        Revisa el código postal.
                     </small>                
                 </div>
             </div>
