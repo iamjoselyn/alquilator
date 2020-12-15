@@ -15,6 +15,7 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
 
 import { AuthService } from './shared/services/auth.service';
 import { UserRegistrationService } from './shared/services/user-registration.service';
+import { CategoryComponent } from './pages/category/category.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { UserRegistrationService } from './shared/services/user-registration.ser
     FooterComponent,
     UserAreaComponent,
     UserLoginComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

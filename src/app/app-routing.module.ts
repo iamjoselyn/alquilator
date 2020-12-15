@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ProductBookingComponent } from './pages/product-booking/product-booking.component';
 import { UserAreaComponent } from './pages/user-area/user-area.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: "login", component: UserLoginComponent},
   // Category route 
   // {path: "category/:id", component: CategoryComponent},
+  {path: "category", component: CategoryComponent},
   { path: "user-area", component: UserAreaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

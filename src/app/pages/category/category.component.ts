@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-category',
+  templateUrl: './category.component.html',
+  styleUrls: ['./category.component.css']
 })
-export class HomeComponent implements OnInit {
-  
+export class CategoryComponent implements OnInit {
+
   categories = [
     {name: "Deportes", img: "../../../assets/barbell.svg"}, 
     {name: "Mobiliario", img: "../../../assets/home-flat.svg"}, 
@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
     {name: "Herramientas", img: "../../../assets/wrench-flat.svg"}
   
   ]
-
+  
   constructor() { }
 
   ngOnInit(): void {
