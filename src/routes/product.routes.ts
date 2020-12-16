@@ -28,6 +28,7 @@ class ProductRoutes {
         this.router.post("/fotos", upload.array('file', 5), productController.postPics);
         this.router.delete("/:id", productController.deleteProducts);
         this.router.put("/:id", productController.updateProucts);
+        this.router.get("/:category", productController.getProductsByCategory);
     }
 }
 

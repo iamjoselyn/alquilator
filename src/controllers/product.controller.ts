@@ -65,16 +65,60 @@ class ProductController {
             res.sendStatus(400);
         }
 
-        
     }
 
     public async deleteProducts (req: Request, res: Response){
+        try {
+            const toDelete = req.params.id;
+
+            const response = await ProductModel.deleteOne({_id: toDelete});
+
+            res.send("El producto ha sido borrado");
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+            
+        }
 
     }
 
     public async updateProucts(req: Request, res: Response){
-        
+        try {
+            const modifyProduct = await ProductModel.findByIdAndUpdate({
+                _id: req.params.id
+            },
+            {
+                name: req.body.name,
+                description: req.body.description,
+                status: req.body.status,
+                category: req.body.category,
+                price: req.body.price,
+                bookingLength: req.body.bookingLength,
+                
+            });
+
+            res.send("El producto se ha modificado correctamente.");
+                          
+        } catch(error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
     }
+
+    public async getProductsByCategory(req: Request, res: Response) {
+        try {
+            const productsByCategory =  await ProductModel.find({
+                category: req.params.category
+            });
+            res.send(productsByCategory)
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
+    }
+
+
 
 }
 

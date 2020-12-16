@@ -14,7 +14,6 @@ class UserController {
     public async getUsers(req: Request, res: Response) {
         try {
             const allUsers = await UserModel.find()
-                .populate("productId");
             res.send(allUsers);
 
         } catch (error) {
