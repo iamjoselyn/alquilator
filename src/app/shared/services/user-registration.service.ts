@@ -53,6 +53,17 @@ export class UserRegistrationService {
 
   }
 
+  // llamar a este método desde UserArea cuando se haya creado para borrar los datos de un usuario?
+  async deleteUser(url = "", data = {}) {
+
+  }
+
+  // para modificar los datos, llamar desde UserArea
+  async updateUser(url = "", data = {}) {
+
+  }
+
+
   // signin(user: Users): any {
   //   this.http.post(`${this.baseUrl}/login`, user)
   //     .subscribe( (data: any) => {

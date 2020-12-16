@@ -15,7 +15,7 @@
     <div>
         <!-- ¿Ponemos un color de fondo diferente? -->
         <div class="row mt-4 g-1 px-4 mb-5">
-            <div class="col-md-4 mb-3 mt-3"  *ngFor="let category of categories; let i = index">
+            <div class="col-md-4 mb-3 mt-3"  *ngFor="let category of categories; let i = index" (click)="categoryRedirect(categories[i].name)">
                 <div class="card-inner p-3 d-flex flex-column align-items-center"> <img [src]="categories[i].img" width="50">
                     <div class="text-center mg-text"> <span class="mg-text">{{categories[i].name}}</span> </div>
                 </div>

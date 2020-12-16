@@ -80,6 +80,7 @@ export class UserRegistrationComponent implements OnInit {
         });
 
       this.registrationForm.reset();
+      // this.router.navigateByUrl("/user-area");
 
     }
 

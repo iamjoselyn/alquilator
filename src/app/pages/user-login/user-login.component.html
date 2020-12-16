@@ -3,7 +3,7 @@
     <form class="container w-50 p-5" autocomplete="off" [formGroup]="formLogin" (ngSubmit)="saveForm()">
       
       <div class="form-group">
-        <label for="exampleInputEmail1">Email address</label>
+        <label for="exampleInputEmail1">Email</label>
         <small 
           *ngIf="emailInvalid"
           class="form-text text-danger">
@@ -15,15 +15,15 @@
           id="exampleInputEmail1" 
           formControlName="email"
           [class.is-invalid]="emailInvalid">
-        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        <small id="emailHelp" class="form-text text-muted">Nunca compartiremos tu email con nadie más.</small>
       </div>
       
       <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
+        <label for="exampleInputPassword1">Contraseña</label>
         <small 
           class="form-text text-danger"
           *ngIf="passwordInvalid">
-            La contraseña debe tener al menos 5 dígitos.
+            La contraseña debe tener al menos 8 dígitos.
         </small>
         <input 
           type="password" 
@@ -32,7 +32,9 @@
           [class.is-invalid]="passwordInvalid">
       </div>
       
-      <button type="submit" class="btn btn-info">Submit</button>
+      <button type="submit" class="btn btn-block btn-info mt-5 mb-5">Entrar</button>
+      <p class="mt-5">¿Aún no estás registrado? <a class="text-info" routerLink="/registration">¡Regístrate ahora!</a></p>
+
     </form>
   </div>
 

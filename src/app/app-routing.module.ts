@@ -14,7 +14,7 @@ const routes: Routes = [
   {path: "login", component: UserLoginComponent},
   // Category route 
   // {path: "category/:id", component: CategoryComponent},
-  {path: "category", component: CategoryComponent},
+  {path: "category/:name", component: CategoryComponent},
   { path: "user-area", component: UserAreaComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

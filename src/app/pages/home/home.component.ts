@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -19,9 +20,14 @@ export class HomeComponent implements OnInit {
   
   ]
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+  categoryRedirect(catName){
+    // Redirección con el router inyectado en el constructor a ala URL del /category/{catName}
+    // para que nos lleve a la url de cada categorí
+    this.router.navigateByUrl(`/category/${catName}`)
   }
 
 }
