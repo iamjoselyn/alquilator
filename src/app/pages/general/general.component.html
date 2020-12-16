@@ -1,0 +1,50 @@
+<div class="container d-flex m-auto ">
+  <app-user-area></app-user-area>
+  <div class="mt-5 pt-5" style="width: 50vw;">
+      <h1>General</h1>
+  
+      <!-- Perfil de Usuario -->
+      <article>
+          <h3>Tu perfil</h3>
+          <table class="table">
+              <tbody>
+                <tr>
+                  <th scope="row">Nombre</th>
+                  <td>Mark</td>
+                </tr>
+                <tr>
+                  <th scope="row">Correo electrónico</th>
+                  <td>email@email.com</td>
+                </tr>
+                <tr>
+                  <th scope="row">País o regíón</th>
+                  <td>España</td>
+                </tr>
+                <tr>
+                  <th scope="row">Provincia</th>
+                  <td>Madrid</td>
+                </tr>
+              </tbody>
+          </table>
+      </article>
+  
+      <!-- Tus productos -->
+      <article>
+          <h3>Tus productos</h3>
+          <div class="row mt-4 g-1 px-4 mb-5">
+              <!-- <div class="col-md-4 mb-3 mt-3"  *ngFor="let category of categories; let i = index">
+                  <div class="card-inner p-3 d-flex flex-column align-items-center"> <img [src]="categories[i].img" width="50">
+                      <div class="text-center mg-text"> <span class="mg-text">{{categories[i].name}}</span> </div>
+                  </div>
+              </div> -->
+          </div>
+      </article>
+  
+      <!-- Cerrar cesión -->
+      <article>
+          <h3>Cerrar cesión</h3>
+          <p>Cierra cesión de tus cuentas abiertas</p>
+          <button type="button" class="btn btn-outline-secondary">Cerrar cesión</button>
+      </article>
+  </div>
+</div>

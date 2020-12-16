@@ -13,6 +13,10 @@ import { UserAreaComponent } from './pages/user-area/user-area.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
 
 import { AuthService } from './services/auth.service';
+import { HttpClientModule } from '@angular/common/http';
+import { GeneralComponent } from './pages/general/general.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { NewProductComponent } from './pages/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,16 @@ import { AuthService } from './services/auth.service';
     FooterComponent,
     UserAreaComponent,
     UserLoginComponent,
+    GeneralComponent,
+    ProfileComponent,
+    NewProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -44,13 +44,13 @@ export class UserLoginComponent implements OnInit {
   }
 
   saveForm(): void {
-    console.log(this.formLogin);
+    console.log(this.formLogin);    
     
     const loginResult = this.auth.login(this.formLogin);
     console.log('el resultado del login es', loginResult);
 
     if (loginResult) {
-      this.router.navigateByUrl('/newpost');
+      this.router.navigateByUrl('/user-area');
     } else {
       alert('Usuario o contraseña incorrecto. Vuelve a intentarlo!');
     }
