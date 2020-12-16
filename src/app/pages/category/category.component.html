@@ -1,96 +1,33 @@
 <app-header></app-header>
 
 <div class="container mt-5 pt-5 mb-5">
-    <h1 class="mt-5 mb-5">Categoría <img src="../../../assets/barbell.svg" width="50"alt=""> </h1>
+    <h1 class="mt-5 mb-5">{{categoryName}} <img src="../../../assets/barbell.svg" width="50"alt=""> </h1>
     <!-- *ngFor="let category of categories; let i = index" -->
     <!-- {{categories[i].name}}        [src]="categories[i].img" -->
     <div class="card-deck">
-        <div class="card">
-        <!-- <div *ngFor="let product of products; let i = index" class="card"> -->
-            <img [src]="" class="card-img-top" alt="...">
-            <!-- [src]="products[i].picture" -->
+        <div *ngFor="let product of this.products" class="card">
+          <!-- <div *ngFor="let product of products; let i = index" class="card"> -->
+              <img [src]="" class="card-img-top" alt="...">
+              <!-- [src]="products[i].picture" -->
               <div class="card-body">
-                  <h5 class="card-title">Nombre del producto</h5>
-                  <!-- {{product[i].name}} -->
-                  <div class="info-product">
-                    <p class="card-text">Descripción: blablablablablablablablabla</p>
-                    <!-- {{product[i].description}} -->
-                    <!-- <p class="card-text">Username: {{ myUsers[i].login.username }}</p> -->
-                    <p class="card-text">Ubicación: Madrid</p>
-                    <!-- {{product[i].location}} -->
-                    <p class="card-text price">Precio: 10€/día</p>
-                    <!-- {{product[i].price}} -->
-                  </div>
-                  <div class="button-container mt-3">
-                    <button type="button" class="btn btn-block btn-info">Abrir</button>
-                  </div>  
+                    <h5 class="card-title">{{product.name}}</h5>
+
+                    <!-- {{product[i].name}} -->
+                    <div class="info-product">
+                      <p class="card-text">Descripción: {{product.description}}</p>
+                      <!-- {{product[i].description}} -->
+                      <!-- <p class="card-text">Username: {{ myUsers[i].login.username }}</p> -->
+                      <p class="card-text">Ubicación: Madrid</p>
+                      <!-- {{product[i].location}} -->
+                      <p class="card-text price">Precio: {{product.price}}€/día</p>
+                      <!-- {{product[i].price}} -->
+                    </div>
+                    <div class="button-container mt-3">
+                      <button type="button" class="btn btn-block btn-info">Abrir</button>
+                    </div>  
               </div>
+          <!-- </div> -->
         </div>
-        <div class="card">
-            <!-- <div *ngFor="let product of products; let i = index" class="card"> -->
-                <img [src]="" class="card-img-top" alt="...">
-                <!-- [src]="products[i].picture" -->
-                  <div class="card-body">
-                      <h5 class="card-title">Nombre del producto</h5>
-                      <!-- {{product[i].name}} -->
-                      <div class="info-product">
-                        <p class="card-text">Descripción: blablablablablablablablabla</p>
-                        <!-- {{product[i].description}} -->
-                        <!-- <p class="card-text">Username: {{ myUsers[i].login.username }}</p> -->
-                        <p class="card-text">Ubicación: Madrid</p>
-                        <!-- {{product[i].location}} -->
-                        <p class="card-text price">Precio: 10€/día</p>
-                        <!-- {{product[i].price}} -->
-                      </div>
-                      <div class="button-container mt-3">
-                        <button type="button" class="btn btn-block btn-info">Abrir</button>
-                      </div>  
-                  </div>
-        </div>
-        <div class="card">
-            <!-- <div *ngFor="let product of products; let i = index" class="card"> -->
-                <img [src]="" class="card-img-top" alt="...">
-                <!-- [src]="products[i].picture" -->
-                  <div class="card-body">
-                      <h5 class="card-title">Nombre del producto</h5>
-                      <!-- {{product[i].name}} -->
-                      <div class="info-product">
-                        <p class="card-text">Descripción: blablablablablablablablabla</p>
-                        <!-- {{product[i].description}} -->
-                        <!-- <p class="card-text">Username: {{ myUsers[i].login.username }}</p> -->
-                        <p class="card-text">Ubicación: Madrid</p>
-                        <!-- {{product[i].location}} -->
-                        <p class="card-text price">Precio: 10€/día</p>
-                        <!-- {{product[i].price}} -->
-                      </div>
-                      <div class="button-container mt-3">
-                        <button type="button" class="btn btn-block btn-info">Abrir</button>
-                      </div>  
-                  </div>
-        </div>
-        <div class="card">
-            <!-- <div *ngFor="let product of products; let i = index" class="card"> -->
-                <img [src]="" class="card-img-top" alt="...">
-                <!-- [src]="products[i].picture" -->
-                  <div class="card-body">
-                      <h5 class="card-title">Nombre del producto</h5>
-                      <!-- {{product[i].name}} -->
-                      <div class="info-product">
-                        <p class="card-text">Descripción: blablablablablablablablabla</p>
-                        <!-- {{product[i].description}} -->
-                        <!-- <p class="card-text">Username: {{ myUsers[i].login.username }}</p> -->
-                        <p class="card-text">Ubicación: Madrid</p>
-                        <!-- {{product[i].location}} -->
-                        <p class="card-text price">Precio: 10€/día</p>
-                        <!-- {{product[i].price}} -->
-                      </div>
-                      <div class="button-container mt-3">
-                        <button type="button" class="btn btn-block btn-info">Abrir</button>
-                      </div>  
-                  </div>
-        </div>
-        
-          
     </div>
     
 
