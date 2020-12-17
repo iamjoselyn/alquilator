@@ -14,3 +14,9 @@
     margin-bottom: 2.2vw;
 }
 
+.button-container {
+    display: flex;    
+    justify-content: center;
+}
+
+

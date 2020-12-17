@@ -1,8 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
 import { ProductService } from 'src/app/shared/services/product.service';
 
 
@@ -22,7 +19,7 @@ export class CategoryComponent implements OnInit {
   ngOnInit(): void {
 
     this.router.paramMap.subscribe((params) => {
-      this.categoryName = params.params.name;
+      // this.categoryName = params.params.name;
 
       this.serviceCall()
       
