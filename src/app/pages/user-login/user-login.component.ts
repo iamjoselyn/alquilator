@@ -39,7 +39,7 @@ export class UserLoginComponent implements OnInit {
     this.formLogin = this.fb.group({
       //['valor por defecto', validSincro, validAsin]
       email: ['', [Validators.required,Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}$')]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(5)]],
     });
   }
 
@@ -50,7 +50,7 @@ export class UserLoginComponent implements OnInit {
     console.log('el resultado del login es', loginResult);
 
     if (loginResult) {
-      this.router.navigateByUrl('/user-area');
+      this.router.navigateByUrl('/general');
     } else {
       alert('Usuario o contraseña incorrecto. Vuelve a intentarlo!');
     }

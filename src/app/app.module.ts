@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 // Services section
 import { AuthService } from './shared/services/auth.service';
@@ -21,9 +22,8 @@ import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { UserAreaComponent } from './pages/user-area/user-area.component';
 import { UserLoginComponent } from './pages/user-login/user-login.component';
-
-
-
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { EachProductComponent } from './pages/each-product/each-product.component';
 
 @NgModule({
   declarations: [
@@ -39,13 +39,16 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
     GeneralComponent,
     ProfileComponent,
     NewProductComponent,
+    AboutUsComponent,
+    EachProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     AuthService, 

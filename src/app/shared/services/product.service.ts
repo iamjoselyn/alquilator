@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,13 @@ export class ProductService {
   products = [];
   baseUrl: string = "http://localhost:3000";
 
-  constructor( private http: HttpClient ) { }
+  product = [];
 
-  async getProductsByCatName(catName) {
+  
+  constructor( private http: HttpClient,
+               private router: Router ) { }
+
+  async getProductsByCatName(catName: string) {
 
     return await this.http.get(`${this.baseUrl}/products/${catName}`).toPromise()
       .then((data: any) => {
@@ -21,15 +26,20 @@ export class ProductService {
   
       })
       .catch((error) => {
-        console.log("Ha habido un ERROR: ", error);
+        console.log("Ha habido un ERROR: ", error); 
+      })    
+  }
 
-        
+  async getProductsById(id: string) {
+    return await this.http.get(`${this.baseUrl}/products/product/${id}`).toPromise()
+      .then((data2: any) => {
+        console.log("PRODUCTO:", data2);
+        this.product = data2
+        console.log(this.product);
       })
-  // con el nombre del parametro vemos la categoria a consultar y
-
-  // Llamada a un recurso de la API para traer los productos con el NOMBRE de categoría - products que nos traemos con un servicio Products - y estos productso serán los que recorreremos en la vista (pasando un poco del 1er for que tengo de categorías en el html de categories - ¿hay que crear un componente para cada categoría? -, yendo directamente al for de productos)
-  // filtraremos por categoria en la colección de productos where category sea el que llega por URL
-    
+      .catch((error) => {
+        console.log("EEERRROOOOROR: ", error);
+      })
   }
 
   async saveProduct(url = "", data = {}) {
@@ -42,9 +52,5 @@ export class ProductService {
         },
         body: JSON.stringify(data)
     });
-
-    // return response.json();
-    // si descomentamos da error: SyntaxError: Unexpected token T in JSON at position 0
-
   }
 }

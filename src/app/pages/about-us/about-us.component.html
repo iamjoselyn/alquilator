@@ -1,0 +1,37 @@
+
+
+<div class="container mt-5 pt-5">
+    <h1 class="mt-5">Sobre Alquilator</h1>
+ 
+    <p class="mt-5 mb-5">Alquilator nace de la idea de blaskbdaldbskla
+
+        Alquilator.com es una web destinada al alquiler de productos. Para todas esas cosas que no utilizamos todos los días pero que nunca viene mal tener a mano, ¡y más aún si pueden ayudarnos a sacar un dinerillo extra!
+
+    </p>
+
+    <h5>Estamos en:</h5>
+    <p>
+        Plaza de San Vicente 5<br>
+        05001 Ávila<br>
+        Email: <a href="mailto:alquilator@alquilator.com"> alquilator@alquilator.com</a><br>
+        Teléfono: 667776667
+    </p>
+
+    <div class="mt-5 mb-5">
+        <google-map 
+            width="750px"
+            height="450px"
+            [center]="center"
+            [zoom]="zoom"
+        >
+            <map-marker
+            *ngFor="let marker of markers"
+            [position]="marker.position"
+            [label]="marker.label"
+            [title]="marker.title"
+            >
+            </map-marker>
+        </google-map>
+    </div>
+
+</div>
