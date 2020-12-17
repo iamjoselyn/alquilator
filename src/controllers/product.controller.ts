@@ -6,6 +6,7 @@ import mongoose from "mongoose";
 const ProductModel = require("../models/product.model")
 
 class ProductController {
+
     public async getProducts (req: Request, res: Response){
         try {
             const allProducts = await ProductModel.find()
@@ -35,7 +36,7 @@ class ProductController {
 
             const newProduct = new ProductModel();
 
-            // newProduct._id = new mongoose.Types.ObjectId();
+            newProduct._id = new mongoose.Types.ObjectId();
             newProduct.name = product.name;
             newProduct.description = product.description;
             newProduct.status = product.status;
@@ -113,12 +114,25 @@ class ProductController {
             res.send(productsByCategory)
 
         } catch (error) {
-            console.log(error);
+            console.log(error); 
             res.sendStatus(404);
         }
     }
 
+    public async getById (req:Request, res:Response) {
+        try {
+            const productById = await ProductModel.find(
+                {
+                    _id: req.params.id
+                }
+            )
+            res.json(productById)
 
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(400)
+        }
+    }
 
 }
 
