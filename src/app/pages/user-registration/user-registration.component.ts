@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Users } from 'src/app/models/user.model';
 import { UserRegistrationService } from 'src/app/shared/services/user-registration.service';
 
 @Component({
@@ -69,14 +68,10 @@ export class UserRegistrationComponent implements OnInit {
     } else {
 
       console.log("Todo bien: FORMULARIO: ", this.registrationForm.value);
-
-      // this.register(this.registrationForm);
-      // this.userService.register(this.registrationForm);
   
       this.userService.register("http://localhost:3000/users", this.registrationForm.value)
         .then(data => {
-          console.log(data);
-          
+          console.log(data); 
         });
 
       this.registrationForm.reset();
@@ -86,15 +81,6 @@ export class UserRegistrationComponent implements OnInit {
 
   };
 
-  // register(form) {
-  //   console.log(form.value);
-  //   this.userService.register(form.value).subscribe((res) => {
-  //     this.router.navigateByUrl('/user-area');
-  //   }, error => {
-  //     console.log("ERROR: ", error);
-      
-  //   });
-  // }
 }
 
 

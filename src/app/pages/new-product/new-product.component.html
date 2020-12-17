@@ -1,87 +1,162 @@
-<div class="container d-flex m-auto ">
+<div class="container d-flex mx-auto">
   <app-user-area></app-user-area>
   
   <div class="mt-5 pt-5" style="width: 50vw;">
-    <h3 id="forms" class="mt-5">Nuevo producto</h3>
+    <h3>Nuevo producto</h3>
     <p>Sube un nuevo producto para alquilar!</p>
 
-    <!-- New product FORM section -->
+    <!-- **** NEW PRODUCT FORM SECTION **** -->
+    <form class="container p-4" autocomplete="off" [formGroup]="formNewpost" (ngSubmit)="saveNewpostForm()"> 
+      
 
-    <!-- Name of the product -->
-    <div class="col-md-6 mb-3">
-      <label for="validationTooltip01">Nombre del producto</label>
-      <input type="text" class="form-control" id="validationTooltip01" value="" required>
-      <div class="valid-tooltip">
-        Looks good!
+      <!-- Name of the product -->
+      <div class="form-group">
+        <label for="name">Nombre</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="name" 
+          name="name"
+          formControlName="name" 
+          [class.is-invalid]="productNameInvalid"
+        >
+        <small
+          *ngIf="productNameInvalid" 
+          class="form-text text-danger">
+              Indica el nombre del producto.
+         </small>
       </div>
-    </div>
-
-    <!-- Category of the product -->
-    <div class="form-group">
-      <label for="exampleFormControlSelect1">Categoria de tu producto</label>
-      <select class="form-control" id="exampleFormControlSelect1">
-        <option>Deportes</option>
-        <option>Mobiliario</option>
-        <option>Ocio</option>
-        <option>Informática y Móviles</option>
-        <option>Música e instrumentos</option>
-        <option>Sonido</option>
-        <option>Herramientas</option>
-        <option>Fotografía y Video</option>
-      </select>
-    </div>
-
-    <!-- State of the product -->
-    <div class="col-md-3 mb-3">
-      <label for="validationCustom04">Estado del producto</label>
-      <select class="custom-select" id="validationCustom04" required>
-        <option selected disabled value="">Choose...</option>
-        <option>Nuevo</option>
-        <option>Usado</option>
-        <option>Muy usado</option>
-      </select>
-      <div class="invalid-feedback">
-        Por favor selecciona el estado de tu producto.
+  
+      <!-- Category of the product -->
+      <div class="form-group">
+        <label for="category">Categoria</label>
+        <select 
+          class="form-control" 
+          id="category"
+          name="category"
+          formControlName="category"
+          [class.is-invalid]="productCategoryInvalid"
+        >
+          <option>Deportes</option>
+          <option>Mobiliario</option>
+          <option>Ocio</option>
+          <option>Informática</option>
+          <option>Instrumentos</option>
+          <option>Sonido</option>
+          <option>Herramientas</option>
+          <option>Fotografía</option>
+        </select>
+        <small
+          *ngIf="productCategoryInvalid" 
+          class="form-text text-danger">
+              Indica la categoría del producto.
+         </small>
       </div>
-    </div>
-
-    <!-- Price of the product -->
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label">Precio</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-
-    <!-- Description of the product -->
-    <div class="form-group">
-      <label for="exampleTextarea">Descripción del producto</label>
-      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
-    </div>
-
-    <!-- Upload images of the product -->
-    <div class="input-group">
-      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir imagen</button>
-    </div>
-    
-    <!-- Datepicker availability of the product -->
-    <div class="section colm colm6">
-      <label for="checkin" class="field-label">Lo alquilo desde</label>
-      <label for="checkin" class="field prepend-icon">
-        <input type="text" id="checkin" name="checkin" class="gui-input" required="" placeholder="mm/dd/yyyy">
-        <span class="field-icon"><i class="fa fa-calendar"></i></span>  
-      </label>
-    </div>
-    
-    <div class="section colm colm6">
-      <label for="checkout" class="field-label">Hasta</label>
-      <label for="checkout" class="field prepend-icon">
-        <input type="text" id="checkout" name="checkout" class="gui-input" required="" placeholder="mm/dd/yyyy">
-        <span class="field-icon"><i class="fa fa-calendar"></i></span>  
-      </label>  
-    </div>
-
-    <!-- Submit product button -->
-    <button type="submit" class="btn btn-primary">Submit</button>
+  
+      <!-- State of the product -->
+      <div class="form-group">
+        <label for="validationCustom04">Estado</label>
+        <select 
+          class="custom-select" 
+          id="validationCustom04" 
+          required
+          name="status"
+          formControlName="status"
+          [class.is-invalid]="productStateInvalid"
+        >
+          <option selected disabled value="">Choose...</option>
+          <option>Nuevo</option>
+          <option>Usado</option>
+          <option>Muy usado</option>
+        </select>
+        <small
+          *ngIf="productStateInvalid" 
+          class="form-text text-danger">
+              Indica el estado del producto.
+         </small>
+      </div>
+  
+      <!-- Price of the product -->
+      <div class="form-group">
+        <label for="inputPrice" class="form-label">Precio</label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="inputPrice"
+          name="price"
+          formControlName="price"
+          [class.is-invalid]="productPriceInvalid"
+        >
+        <small
+          *ngIf="productPriceInvalid" 
+          class="form-text text-danger">
+              Indica el precio del producto.
+         </small>
+      </div>
+  
+      <!-- Description of the product -->
+      <div class="form-group">
+        <label for="exampleTextarea">Descripción</label>
+        <textarea 
+          class="form-control" 
+          id="exampleTextarea" 
+          rows="5"
+          name="description"
+          formControlName="description"
+          [class.is-invalid]="productDescriptionInvalid"
+        ></textarea>
+        <small
+          *ngIf="productDescriptionInvalid" 
+          class="form-text text-danger">
+              Indica la descripción del producto.
+         </small>
+      </div>
+  
+      <!-- Upload images of the product -->
+      <div class="input-group mb-3">
+        <div class="custom-file">
+          <input 
+            type="file" 
+            class="custom-file-input" 
+            id="inputGroupFile02"
+            name="pictures"
+            formControlName="pictures"
+            [class.is-invalid]="productImgInvalid"  
+          >
+          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elije una imágen</label>
+          <small
+            *ngIf="productImgInvalid" 
+            class="form-text text-danger">
+              Sube una imágen para tu producto.
+          </small>
+        </div>
+      </div>
+      
+      <!-- Datepicker availability of the product -->
+      <div class="form-group">
+        <label for="customRange2" class="form-label">¿Cuántos días alquilas tu producto?</label>
+        <input 
+          type="range" 
+          class="form-range" 
+          min="1" max="31" 
+          id="customRange2"  
+          value="15"
+          oninput="this.nextElementSibling.value = this.value"
+          name="bookingLength"
+          formControlName="bookingLength"
+          [class.is-invalid]="productRangeInvalid"  
+        >
+        <output>15</output>
+        <small
+            *ngIf="productRangeInvalid" 
+            class="form-text text-danger">
+              Indica cúantos días estará disponible tu producto
+          </small>
+      </div>
+  
+      <!-- Submit product button -->
+      <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
          
   </div>
 </div>

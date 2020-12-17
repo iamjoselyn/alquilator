@@ -31,7 +31,7 @@ export class CategoryComponent implements OnInit {
   };
 
   async serviceCall() {
-    await this.productService.getProdcutsByCatName(this.categoryName)
+    await this.productService.getProductsByCatName(this.categoryName)
     this.products = this.productService.products;
     console.log(this.products);
 

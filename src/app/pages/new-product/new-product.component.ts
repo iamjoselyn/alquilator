@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductService } from 'src/app/shared/services/product.service';
 
 @Component({
   selector: 'app-new-product',
@@ -7,9 +10,78 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewProductComponent implements OnInit {
 
-  constructor() { }
+  //Referencia formulario Newpost con su tipo
+  formNewpost: FormGroup;
 
-  ngOnInit(): void {
+  //Declaración del FormBuilder, ruter y servicio
+  constructor(private fb:FormBuilder, 
+              private router: Router,
+              private productService: ProductService) {
+    //llamada del método que crea el formulario
+    this.createFormNewpost();
   }
 
+  ngOnInit(): void {}
+
+  // Comprobación si el campo es inválido
+  get productNameInvalid (): boolean {
+    return this.formNewpost.get('name').invalid && this.formNewpost.get('name').touched;
+  }
+
+  get productCategoryInvalid (): boolean {
+    return this.formNewpost.get('category').invalid && this.formNewpost.get('category').touched;
+  }
+
+  get productStateInvalid (): boolean {
+    return this.formNewpost.get('status').invalid && this.formNewpost.get('status').touched;
+  }
+
+  get productPriceInvalid (): boolean {
+    return this.formNewpost.get('price').invalid && this.formNewpost.get('price').touched;
+  }
+
+  get productDescriptionInvalid (): boolean {
+    return this.formNewpost.get('description').invalid && this.formNewpost.get('description').touched;
+  }
+
+  get productImgInvalid (): boolean {
+    return this.formNewpost.get('pictures').invalid && this.formNewpost.get('pictures').touched;
+  }
+
+  get productRangeInvalid (): boolean {
+    return this.formNewpost.get('bookingLength').invalid && this.formNewpost.get('bookingLength').touched;
+  }
+
+  //Método que crea el formulario
+  createFormNewpost(): void {
+    //se llama al form y se añade los campos
+    //validator patter para URL no funciona 
+    //Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')
+    this.formNewpost = this.fb.group({
+      name: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      status: ['', [Validators.required]],
+      price: ['', [Validators.required]],
+      description: ['', [Validators.required]],
+      pictures: ['', [Validators.required]],
+      bookingLength: ['', [Validators.required]],
+    });
+  }
+
+  saveNewpostForm(): void {
+    if (this.formNewpost.valid) {
+      console.log('Este es el form', this.formNewpost.value);
+      alert("Los datos se han guardado correctamente!")
+
+      this.productService.saveProduct("http://localhost:3000/products", this.formNewpost.value)
+        .then(data => {
+          console.log(data);
+        });
+
+      this.formNewpost.reset();
+      this.router.navigateByUrl('/home');
+    } else {
+      alert('Por favor, rellena todos los campos correctamente')
+    }
+  }
 }
