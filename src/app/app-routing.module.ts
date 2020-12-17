@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CategoryComponent } from './pages/category/category.component';
+import { EachProductComponent } from './pages/each-product/each-product.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NewProductComponent } from './pages/new-product/new-product.component';
@@ -16,13 +18,13 @@ const routes: Routes = [
   {path: "registration", component: UserRegistrationComponent},
   {path: "home", component: HomeComponent},
   {path: "login", component: UserLoginComponent},
-  // Category route 
-  // {path: "category/:id", component: CategoryComponent},
   {path: "category/:name", component: CategoryComponent},
   { path: "user-area", component: UserAreaComponent},
   {path: "profile", component: ProfileComponent},
   {path: "general", component: GeneralComponent},
   {path: "upload", component: NewProductComponent},
+  {path: "about-us", component: AboutUsComponent},
+  {path: "each-product/:id", component: EachProductComponent},
  
   { path: '**', pathMatch: 'full', redirectTo: 'home' },
 ];

@@ -24,9 +24,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  categoryRedirect(catName){
-    // Redirección con el router inyectado en el constructor a ala URL del /category/{catName}
-    // para que nos lleve a la url de cada categorí
+  categoryRedirect(catName: string){
     this.router.navigateByUrl(`/category/${catName}`)
   }
 

@@ -19,6 +19,9 @@ import { CategoryComponent } from './pages/category/category.component';
 import { GeneralComponent } from './pages/general/general.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { NewProductComponent } from './pages/new-product/new-product.component';
+import { AboutUsComponent } from './pages/about-us/about-us.component';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { EachProductComponent } from './pages/each-product/each-product.component';
 
 @NgModule({
   declarations: [
@@ -34,13 +37,16 @@ import { NewProductComponent } from './pages/new-product/new-product.component';
     GeneralComponent,
     ProfileComponent,
     NewProductComponent,
+    AboutUsComponent,
+    EachProductComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    GoogleMapsModule
   ],
   providers: [
     AuthService, 

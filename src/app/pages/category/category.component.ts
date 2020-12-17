@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
-
 
 @Component({
   selector: 'app-category',
@@ -14,13 +13,14 @@ export class CategoryComponent implements OnInit {
   products = [];
   
   constructor( private router: ActivatedRoute,
-               private productService: ProductService ) { }
+               private productService: ProductService,
+               private router2: Router ) { }
 
   ngOnInit(): void {
-
-    this.router.paramMap.subscribe((params) => {
-      // this.categoryName = params.params.name;
-
+    this.router.params.subscribe((params) => {
+      console.log(params);
+      this.categoryName = params["name"];
+      
       this.serviceCall()
       
       console.log(this.categoryName);
@@ -33,8 +33,13 @@ export class CategoryComponent implements OnInit {
   async serviceCall() {
     await this.productService.getProdcutsByCatName(this.categoryName)
     this.products = this.productService.products;
-    console.log(this.products);
+    console.log("CATEGORY COMPONENT", this.products);
 
   };
+
+  redirect(id) {
+    this.router2.navigateByUrl(`/each-product/${id}`)
+
+  }
 
 }
