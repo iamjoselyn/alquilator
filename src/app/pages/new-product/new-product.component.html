@@ -1,0 +1,87 @@
+<div class="container d-flex m-auto ">
+  <app-user-area></app-user-area>
+  
+  <div class="mt-5 pt-5" style="width: 50vw;">
+    <h3 id="forms" class="mt-5">Nuevo producto</h3>
+    <p>Sube un nuevo producto para alquilar!</p>
+
+    <!-- New product FORM section -->
+
+    <!-- Name of the product -->
+    <div class="col-md-6 mb-3">
+      <label for="validationTooltip01">Nombre del producto</label>
+      <input type="text" class="form-control" id="validationTooltip01" value="" required>
+      <div class="valid-tooltip">
+        Looks good!
+      </div>
+    </div>
+
+    <!-- Category of the product -->
+    <div class="form-group">
+      <label for="exampleFormControlSelect1">Categoria de tu producto</label>
+      <select class="form-control" id="exampleFormControlSelect1">
+        <option>Deportes</option>
+        <option>Mobiliario</option>
+        <option>Ocio</option>
+        <option>Informática y Móviles</option>
+        <option>Música e instrumentos</option>
+        <option>Sonido</option>
+        <option>Herramientas</option>
+        <option>Fotografía y Video</option>
+      </select>
+    </div>
+
+    <!-- State of the product -->
+    <div class="col-md-3 mb-3">
+      <label for="validationCustom04">Estado del producto</label>
+      <select class="custom-select" id="validationCustom04" required>
+        <option selected disabled value="">Choose...</option>
+        <option>Nuevo</option>
+        <option>Usado</option>
+        <option>Muy usado</option>
+      </select>
+      <div class="invalid-feedback">
+        Por favor selecciona el estado de tu producto.
+      </div>
+    </div>
+
+    <!-- Price of the product -->
+    <div class="col-md-2">
+      <label for="inputZip" class="form-label">Precio</label>
+      <input type="text" class="form-control" id="inputZip">
+    </div>
+
+    <!-- Description of the product -->
+    <div class="form-group">
+      <label for="exampleTextarea">Descripción del producto</label>
+      <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    </div>
+
+    <!-- Upload images of the product -->
+    <div class="input-group">
+      <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+      <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Subir imagen</button>
+    </div>
+    
+    <!-- Datepicker availability of the product -->
+    <div class="section colm colm6">
+      <label for="checkin" class="field-label">Lo alquilo desde</label>
+      <label for="checkin" class="field prepend-icon">
+        <input type="text" id="checkin" name="checkin" class="gui-input" required="" placeholder="mm/dd/yyyy">
+        <span class="field-icon"><i class="fa fa-calendar"></i></span>  
+      </label>
+    </div>
+    
+    <div class="section colm colm6">
+      <label for="checkout" class="field-label">Hasta</label>
+      <label for="checkout" class="field prepend-icon">
+        <input type="text" id="checkout" name="checkout" class="gui-input" required="" placeholder="mm/dd/yyyy">
+        <span class="field-icon"><i class="fa fa-calendar"></i></span>  
+      </label>  
+    </div>
+
+    <!-- Submit product button -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+         
+  </div>
+</div>

@@ -16,6 +16,9 @@ import { UserLoginComponent } from './pages/user-login/user-login.component';
 import { AuthService } from './shared/services/auth.service';
 import { UserRegistrationService } from './shared/services/user-registration.service';
 import { CategoryComponent } from './pages/category/category.component';
+import { GeneralComponent } from './pages/general/general.component';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { NewProductComponent } from './pages/new-product/new-product.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,9 @@ import { CategoryComponent } from './pages/category/category.component';
     UserAreaComponent,
     UserLoginComponent,
     CategoryComponent,
+    GeneralComponent,
+    ProfileComponent,
+    NewProductComponent,
   ],
   imports: [
     BrowserModule,
