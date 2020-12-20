@@ -15,7 +15,7 @@ class UserRoutes {
         this.router.put("/", userController.updateUsers);
 
         // Hacemos un endpoint que devuelva el objeto usuario, filtrando en la tabla usuarios por email para traernos toda la info incluido el id de usuario
-        this.router.get("/user", userController.getUserByEmail);
+        // this.router.get("/user:email", userController.getUserByEmail);
 
         //User authentication
         this.router.post('/auth', userController.authUser);

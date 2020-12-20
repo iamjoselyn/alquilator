@@ -107,19 +107,21 @@ class UserController {
         }
     };
 
-    public async getUserByEmail(req: Request, res: Response) {
-        try {
-            const usersByEmail = await UserModel.findOne({
-                email: req.body.email
-            })
+    // // No se estaba usando hasta intentar coger productos de cada usuario
 
-            res.json(usersByEmail);
+    // public async getUserByEmail(req: Request, res: Response) {
+    //     try {
+    //         const usersByEmail = await UserModel.findOne({
+    //             email: req.params.email
+    //         })
 
-        } catch (error) {
-            console.log(error);
-            res.sendStatus(404);
-        }
-    };
+    //         res.json(usersByEmail);
+
+    //     } catch (error) {
+    //         console.log(error);
+    //         res.sendStatus(404);
+    //     }
+    // };
 
     //User authentication
     public async authUser (req: Request, res: Response) {
@@ -142,7 +144,7 @@ class UserController {
                 const token = jwt.sign(
                     {result}, //se puede meter tambien el password
                     data.jsonSecret,
-                    {expiresIn: '1h'} 
+                    {expiresIn: '15m'} 
                 );
                 res.json(token);
 
