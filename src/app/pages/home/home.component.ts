@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
     {name: "Ocio", img: "../../../assets/bullseye-flat.svg"}, 
     {name: "Informática", img: "../../../assets/imac-flat.svg"},
     {name: "Fotografía", img: "../../../assets/camera-flat.svg"},
-    {name: "Instumentos", img: "../../../assets/guitar.svg"},
+    {name: "Instrumentos", img: "../../../assets/guitar.svg"},
     {name: "Sonido", img: "../../../assets/sound-on-flat.svg"},
     {name: "Herramientas", img: "../../../assets/wrench-flat.svg"}
   

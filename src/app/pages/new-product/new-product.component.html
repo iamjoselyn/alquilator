@@ -29,7 +29,7 @@
   
       <!-- Category of the product -->
       <div class="form-group">
-        <label for="category">Categoria</label>
+        <label for="category">Categoría</label>
         <select 
           class="form-control" 
           id="category"
@@ -64,7 +64,7 @@
           formControlName="status"
           [class.is-invalid]="productStateInvalid"
         >
-          <option selected disabled value="">Choose...</option>
+          <option selected disabled value="">Elige...</option>
           <option>Nuevo</option>
           <option>Usado</option>
           <option>Muy usado</option>
@@ -78,7 +78,7 @@
   
       <!-- Price of the product -->
       <div class="form-group">
-        <label for="inputPrice" class="form-label">Precio</label>
+        <label for="inputPrice" class="form-label">Precio por día</label>
         <input 
           type="text" 
           class="form-control" 
@@ -123,11 +123,11 @@
             formControlName="pictures"
             [class.is-invalid]="productImgInvalid"  
           >
-          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elije una imágen</label>
+          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elige una imagen</label>
           <small
             *ngIf="productImgInvalid" 
             class="form-text text-danger">
-              Sube una imágen para tu producto.
+              Sube una imagen para tu producto.
           </small>
         </div>
       </div>
@@ -150,7 +150,7 @@
         <small
             *ngIf="productRangeInvalid" 
             class="form-text text-danger">
-              Indica cúantos días estará disponible tu producto
+              Indica cuántos días estará disponible tu producto
           </small>
       </div>
   

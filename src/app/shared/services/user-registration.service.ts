@@ -11,17 +11,17 @@ export class UserRegistrationService {
   baseUrl: string = "http://localhost:3000";
 
   constructor( private http: HttpClient ) { }
-
-  getUsers(): void {
-    this.http.get(`${this.baseUrl}/users`)
-      .subscribe( (data: any) => {
-        console.log("Datos del usuario", data);
-        this.user = data
+  // // No se estaba usando hasta intentar coger productos de cada usuario
+  // getUser(email): void {
+  //   this.http.get(`${this.baseUrl}/users/user/${email}`).toPromise()
+  //     .then( (data: any) => {
+  //       console.log("Get Users desde Auth Serv", data);
+  //       this.user = data
         
-      }, error => {
-        console.log("ERROR: ", error);
-      });
-  }
+  //     }, error => {
+  //       console.log("ERROR en Get Users desde Auth Serv: ", error);
+  //     });
+  // }
 
   async register(url = "", data = {}) {
     const response = await fetch(url, {
