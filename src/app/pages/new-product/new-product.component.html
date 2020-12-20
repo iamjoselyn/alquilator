@@ -113,19 +113,40 @@
       </div>
   
       <!-- Upload images of the product -->
-      <div class="input-group mb-3">
+      <div class="form-group">
         <div class="custom-file">
+          <label for="inputImg" class="form-label">Imágenes</label>
           <input 
-            type="file" 
-            class="custom-file-input" 
-            id="inputGroupFile02"
-            name="pictures"
-            formControlName="pictures"
-            [class.is-invalid]="productImgInvalid"  
+            type="text" 
+            class="form-control" 
+            id="inputImg"
+            placeholder="Introduce la URL de tu imágen"
+            name="pictures1"
+            formControlName="pictures1"
+            [class.is-invalid]="productImg1Invalid"
           >
-          <label class="custom-file-label" for="inputGroupFile02" aria-describedby="inputGroupFileAddon02">Elige una imagen</label>
+          
+          <input 
+            type="text" 
+            class="form-control" 
+            id="inputImg"
+            placeholder="Introduce la URL de tu imágen"
+            name="pictures2"
+            formControlName="pictures2"
+            [class.is-invalid]="productImg2Invalid"
+          >
+          
+          <input 
+            type="text" 
+            class="form-control" 
+            id="inputImg"
+            placeholder="Introduce la URL de tu imágen"
+            name="pictures3"
+            formControlName="pictures3"
+            [class.is-invalid]="productImg3Invalid"
+          >
           <small
-            *ngIf="productImgInvalid" 
+            *ngIf="productImg1Invalid" 
             class="form-text text-danger">
               Sube una imagen para tu producto.
           </small>

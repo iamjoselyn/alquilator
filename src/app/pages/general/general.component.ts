@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import { UserRegistrationService } from 'src/app/shared/services/user-registration.service';
 
 @Component({
   selector: 'app-general',
@@ -7,11 +8,31 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./general.component.css']
 })
 export class GeneralComponent implements OnInit {
-
-  constructor( private auth: AuthService ) { }
+  user: any;
+  userProducts: [];
+  constructor( private auth: AuthService,
+                private userService: UserRegistrationService,) {}
 
   ngOnInit(): void {
+    this.userData();
+    this.userProductsData();
   }
+
+  async userData() {
+    await this.userService.getUser(localStorage.getItem('email'))
+    this.user = this.userService.user;
+    console.log("Datos del usuario", this.user);
+
+    await this.userService.getUserProduct(this.user._id)
+    this.userProducts = this.userService.userProduct;
+    console.log("Datos productos", this.userProducts);
+  };
+
+  async userProductsData() {
+    
+    
+
+  };
 
   logout() {
     this.auth.logout();

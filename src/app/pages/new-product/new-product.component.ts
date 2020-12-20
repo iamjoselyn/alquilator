@@ -44,8 +44,16 @@ export class NewProductComponent implements OnInit {
     return this.formNewpost.get('description').invalid && this.formNewpost.get('description').touched;
   }
 
-  get productImgInvalid (): boolean {
-    return this.formNewpost.get('pictures').invalid && this.formNewpost.get('pictures').touched;
+  get productImg1Invalid (): boolean {
+    return this.formNewpost.get('pictures1').invalid && this.formNewpost.get('pictures1').touched;
+  }
+
+  get productImg2Invalid (): boolean {
+    return this.formNewpost.get('pictures2').invalid && this.formNewpost.get('pictures2').touched;
+  }
+
+  get productImg3Invalid (): boolean {
+    return this.formNewpost.get('pictures3').invalid && this.formNewpost.get('pictures3').touched;
   }
 
   get productRangeInvalid (): boolean {
@@ -63,7 +71,9 @@ export class NewProductComponent implements OnInit {
       status: ['', [Validators.required]],
       price: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      pictures: ['', [Validators.required]],
+      pictures1: ['', [Validators.required]],
+      pictures2: ['', [Validators.required]],
+      pictures3: ['', [Validators.required]],
       bookingLength: ['', [Validators.required]],
     });
   }

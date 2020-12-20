@@ -42,7 +42,7 @@ export class AuthService {
         console.log(formLogin.value.email);
         
         localStorage.setItem('auth', data)
-        
+        localStorage.setItem('email', formLogin.value.email)
         return true; 
 
       })
@@ -54,6 +54,7 @@ export class AuthService {
 
   isAuth(): boolean {
     if (localStorage.getItem('auth') !== '') {
+      // if (localStorage.getItem('') !== '') {}
       return true;
     } else {
       return false;

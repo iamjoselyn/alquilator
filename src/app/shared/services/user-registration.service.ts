@@ -6,8 +6,8 @@ import { Injectable } from '@angular/core';
 })
 
 export class UserRegistrationService {
-  
-  user: any[] = [];
+  userProduct: [];
+  user: any;
   baseUrl: string = "http://localhost:3000";
 
   constructor( private http: HttpClient ) { }
@@ -47,6 +47,32 @@ export class UserRegistrationService {
   // para modificar los datos, llamar desde UserArea
   async updateUser(url = "", data = {}) {
 
+  }
+
+  async getUser(email: string) {
+    
+    return await this.http.get(`${this.baseUrl}/users/${email}`).toPromise()
+      .then((data: any) => {
+        console.log("Datos del usuario", data);
+        this.user = data
+        // console.log(this.userProduct);
+      })
+      .catch((error) => {
+        console.log("EEERRROOOOROR: ", error);
+      })
+  }
+
+  async getUserProduct(id: string) {
+    
+    return await this.http.get(`${this.baseUrl}/products/user/${id}`).toPromise()
+      .then((data: any) => {
+        console.log("PRODUCTOS del usuario:", data);
+        this.userProduct = data;
+        console.log(this.userProduct);
+      })
+      .catch((error) => {
+        console.log("EEERRROOOOROR: ", error);
+      })
   }
 
 }
