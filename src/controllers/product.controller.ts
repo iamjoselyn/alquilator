@@ -28,10 +28,11 @@ class ProductController {
                 status: req.body.status,
                 category: req.body.category,
                 price: req.body.price,
-                pictures: req.body.pictures,
+                pictures1: req.body.pictures1,
+                pictures2: req.body.pictures2,
+                pictures3: req.body.pictures3,
                 bookingLength: req.body.bookingLength,
                 userId: req.body.userId
-                // userId: ¿cómo hago referencia al id del usuario?
             };
 
             const newProduct = new ProductModel();
@@ -42,7 +43,9 @@ class ProductController {
             newProduct.status = product.status;
             newProduct.category = product.category;
             newProduct.price = product.price;
-            newProduct.pictures = product.pictures;
+            newProduct.pictures1 = product.pictures1;
+            newProduct.pictures2 = product.pictures2;
+            newProduct.pictures3 = product.pictures3;
             newProduct.bookingLength = product.bookingLength;
             newProduct.userId = product.userId
             
@@ -134,6 +137,21 @@ class ProductController {
         }
     }
 
+    public async getUserById (req:Request, res:Response) {
+        try {
+            const userProducts = await ProductModel.find(
+                {
+                    userId: req.params.id
+                }
+            )
+            .populate('userId')
+            res.json(userProducts)
+
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(400)
+        }
+    }
 }
 
 export const productController = new ProductController();

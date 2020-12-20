@@ -109,19 +109,18 @@ class UserController {
 
     // // No se estaba usando hasta intentar coger productos de cada usuario
 
-    // public async getUserByEmail(req: Request, res: Response) {
-    //     try {
-    //         const usersByEmail = await UserModel.findOne({
-    //             email: req.params.email
-    //         })
+    public async getUserByEmail(req: Request, res: Response) {
+        try {
+            const usersByEmail = await UserModel.findOne({
+                email: req.params.email
+            })
+            res.json(usersByEmail);
 
-    //         res.json(usersByEmail);
-
-    //     } catch (error) {
-    //         console.log(error);
-    //         res.sendStatus(404);
-    //     }
-    // };
+        } catch (error) {
+            console.log(error);
+            res.sendStatus(404);
+        }
+    };
 
     //User authentication
     public async authUser (req: Request, res: Response) {

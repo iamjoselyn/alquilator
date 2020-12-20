@@ -23,7 +23,7 @@ class ProductRoutes {
 
         this.router.get("/:category", productController.getProductsByCategory);
         this.router.get("/product/:id", productController.getById);
-        // this.router.get("/user/:id", productController.getUserByEmail)
+        this.router.get("/user/:id", productController.getUserById);
         this.router.get("/", productController.getProducts);
         // this.router.get("/:id/bookings", productController.getProducts);
         // para recoger todos los mensajes que hacen referencia al productId específico

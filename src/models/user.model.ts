@@ -10,9 +10,7 @@ const UserSchema = new Schema({
     city: String,
     province: String,
     zipCode: Number,
-
-    // conditions: Boolean
-
+   
 });
 
 module.exports = mongoose.model("User", UserSchema);
