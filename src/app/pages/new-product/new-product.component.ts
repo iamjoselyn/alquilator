@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProductService } from 'src/app/shared/services/product.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-new-product',
@@ -63,8 +64,6 @@ export class NewProductComponent implements OnInit {
   //Método que crea el formulario
   createFormNewpost(): void {
     //se llama al form y se añade los campos
-    //validator patter para URL no funciona 
-    //Validators.pattern('(https?://)?([\\da-z.-]+)\\.([a-z.]{2,6})[/\\w .-]*/?')
     this.formNewpost = this.fb.group({
       name: ['', [Validators.required]],
       category: ['', [Validators.required]],
@@ -80,18 +79,18 @@ export class NewProductComponent implements OnInit {
 
   saveNewpostForm(): void {
     if (this.formNewpost.valid) {
-      console.log('Este es el form', this.formNewpost.value);
-      alert("Los datos se han guardado correctamente!")
-
+      // console.log('Este es el form', this.formNewpost.value);
+            
       this.productService.saveProduct("http://localhost:3000/products", this.formNewpost.value)
-        .then(data => {
-          console.log(data);
-        });
-
+      .then(data => {
+        // console.log(data);
+      });
+      
       this.formNewpost.reset();
+      swal("Bien hecho!", "El producto se ha subido correctamente", "success");
       this.router.navigateByUrl('/home');
     } else {
-      alert('Por favor, rellena todos los campos correctamente')
+      swal("Oooops!", "Por favor, rellena los campos requeridos", "error");
     }
   }
 }

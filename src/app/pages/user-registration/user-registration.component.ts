@@ -55,9 +55,7 @@ export class UserRegistrationComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(8), Validators.maxLength(20), Validators.pattern("^(?=.*[0-9]+.*)(?=.*[a-zA-Z]+.*)[0-9a-zA-Z]{8,}$")]],
       city: ["", [Validators.required, Validators.minLength(3)]],
       province: ["", [Validators.minLength(3)]],
-      zipCode: ["", [Validators.minLength(5), 
-        // Validators.pattern("/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/")
-      ]]
+      zipCode: ["", [Validators.minLength(5)]]
     });
   };
   
@@ -71,7 +69,7 @@ export class UserRegistrationComponent implements OnInit {
   
       this.userService.register("http://localhost:3000/users", this.registrationForm.value)
         .then(data => {
-          console.log(data); 
+          // console.log(data); 
         });
 
       this.registrationForm.reset();

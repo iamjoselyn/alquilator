@@ -4,7 +4,7 @@
       <h1>General</h1>
   
       <!-- Perfil de Usuario -->
-      <article>
+      <article class="mt-5">
           <h3>Tu perfil</h3>
           <table class="table">
               <tbody>
@@ -30,8 +30,8 @@
   
       <!-- Tus productos -->
       <article>
-          <h3>Tus productos</h3>
-          <div class="row mt-4 g-1 px-4 mb-5">
+          <h3 class="mt-5">Tus productos</h3>
+          <div class="row mt-4 g-1 px-4">
             <div class="card-deck">
               <div *ngFor="let product of this.userProducts" class="card">
                 <img [src]="product.pictures1" class="card-img-top" alt="...">
@@ -46,22 +46,14 @@
                 </div>
               </div>
             </div>
-          </div>
-
-<!-- 
-              <div class="col-md-4 mb-3 mt-3"  *ngFor="let product of this.userProducts">
-                  <div class="card-inner p-3 d-flex flex-column align-items-center"> <img [src]="product.pictures1" width="50">
-                      <div class="text-center mg-text"> <span class="mg-text">{{product.name}}</span> </div>
-                  </div>
-              </div> -->
-          
+          </div>          
       </article>
   
       <!-- Cerrar cesión -->
-      <article class="mb-5">
+      <article class="mt-5 mb-5">
           <h3>Cerrar sesión</h3>
           <p>Cierra sesión de tus cuentas abiertas</p>
-          <button type="button" class="btn btn-block btn-outline-secondary" (click)="logout()">Cerrar sesión</button>
+          <button type="button" class="btn btn-block btn-outline-secondary mt-3" (click)="logout()">Cerrar sesión</button>
       </article>
   </div>
 </div>

@@ -15,23 +15,16 @@ export class GeneralComponent implements OnInit {
 
   ngOnInit(): void {
     this.userData();
-    this.userProductsData();
   }
 
   async userData() {
     await this.userService.getUser(localStorage.getItem('email'))
     this.user = this.userService.user;
-    console.log("Datos del usuario", this.user);
+    // console.log("Datos del usuario", this.user);
 
     await this.userService.getUserProduct(this.user._id)
     this.userProducts = this.userService.userProduct;
-    console.log("Datos productos", this.userProducts);
-  };
-
-  async userProductsData() {
-    
-    
-
+    // console.log("Datos productos", this.userProducts);
   };
 
   logout() {

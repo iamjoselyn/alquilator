@@ -13,11 +13,11 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
 
       if (this.auth.isAuth()) {
-        console.log("Acceso correcto");
+        // console.log("Acceso correcto");
         return true;
 
       } else {
-        console.log("ACCESO DENEGADO!");
+        // console.log("ACCESO DENEGADO!");
         this.router.navigateByUrl("/login");
         return false
       }

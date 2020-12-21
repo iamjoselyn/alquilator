@@ -15,31 +15,24 @@ export class AuthService {
                private router: Router ) { }
 
   //llamamos a FormLogin que tiene el mail y password
-  // aquí se puede llamar a una API 
   async login(formLogin: FormGroup) {
-    console.log(formLogin.value.email);
-
-    // Dentro del if puede ponerse un valor para el mail y password
-    // formLogin.value.email === '' && formLogin.value.password === ''
+    // console.log(formLogin.value.email);
     
     if (await this.callUsers(formLogin) === true) {
-      // no podemos decirle if formLogin.valid porque lo que comprueba es que el form esté correcto en cuanto a validación no es base a lo que haya guardado en el back
-      // POST REQUEST a NODE a /users/auth
-
       return true
-    
       
     } else {
       return false;
-
+      
     }
   }
-
+  
   async callUsers(formLogin: FormGroup) {
+    // POST REQUEST a NODE a /users/auth
     return await this.http.post(`${this.baseUrl}/users/auth`, {email: formLogin.value.email, pass: formLogin.value.password}).toPromise()
       .then( (data: any) => {
-        console.log("token", data);
-        console.log(formLogin.value.email);
+        // console.log("token", data);
+        // console.log(formLogin.value.email);
         
         localStorage.setItem('auth', data)
         localStorage.setItem('email', formLogin.value.email)
@@ -53,18 +46,22 @@ export class AuthService {
   }
 
   isAuth(): boolean {
-    if (localStorage.getItem('auth') !== '') {
-      // if (localStorage.getItem('') !== '') {}
-      return true;
-    } else {
+    const key = localStorage.getItem('auth')
+    
+    if (key === null) {
       return false;
+
+    } else {
+      return true;
     }
   }
 
   logout() {
-    console.log("Saliendo!");
+    // console.log("Saliendo!");
     
     localStorage.removeItem("auth");
+    localStorage.removeItem("email");
+
     this.router.navigateByUrl("/home")
   }
 }

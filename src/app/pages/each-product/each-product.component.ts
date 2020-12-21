@@ -17,13 +17,13 @@ export class EachProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
-      console.log(params);
+      // console.log(params);
       this.productId = params["id"];
 
       this.serviceCall()
       
-      console.log(this.productId);
-      console.log(this.product);
+      // console.log(this.productId);
+      // console.log(this.product);
       
     });
 
@@ -32,7 +32,7 @@ export class EachProductComponent implements OnInit {
   async serviceCall() {
     await this.productService.getProductsById(this.productId)
     this.product = this.productService.product;
-    console.log(this.product);
+    // console.log(this.product);
 
   };
 

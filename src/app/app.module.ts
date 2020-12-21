@@ -8,6 +8,7 @@ import { GoogleMapsModule } from '@angular/google-maps';
 // Services section
 import { AuthService } from './shared/services/auth.service';
 import { UserRegistrationService } from './shared/services/user-registration.service';
+import { ProductService } from './shared/services/product.service';
 
 // Components section
 import { AppComponent } from './app.component';
@@ -52,7 +53,8 @@ import { EachProductComponent } from './pages/each-product/each-product.componen
   ],
   providers: [
     AuthService, 
-    UserRegistrationService
+    UserRegistrationService,
+    ProductService
   ],
   bootstrap: [AppComponent]
 })

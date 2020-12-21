@@ -6,22 +6,12 @@ import { Injectable } from '@angular/core';
 })
 
 export class UserRegistrationService {
-  userProduct: [];
+  
   user: any;
+  userProduct: [];
   baseUrl: string = "http://localhost:3000";
 
   constructor( private http: HttpClient ) { }
-  // // No se estaba usando hasta intentar coger productos de cada usuario
-  // getUser(email): void {
-  //   this.http.get(`${this.baseUrl}/users/user/${email}`).toPromise()
-  //     .then( (data: any) => {
-  //       console.log("Get Users desde Auth Serv", data);
-  //       this.user = data
-        
-  //     }, error => {
-  //       console.log("ERROR en Get Users desde Auth Serv: ", error);
-  //     });
-  // }
 
   async register(url = "", data = {}) {
     const response = await fetch(url, {
@@ -33,10 +23,6 @@ export class UserRegistrationService {
         },
         body: JSON.stringify(data)
     });
-
-    // return response.json();
-    // si descomentamos da error: SyntaxError: Unexpected token T in JSON at position 0
-
   }
 
   // llamar a este método desde UserArea cuando se haya creado para borrar los datos de un usuario?
@@ -53,7 +39,7 @@ export class UserRegistrationService {
     
     return await this.http.get(`${this.baseUrl}/users/${email}`).toPromise()
       .then((data: any) => {
-        console.log("Datos del usuario", data);
+        // console.log("Datos del usuario", data);
         this.user = data
         // console.log(this.userProduct);
       })
@@ -66,9 +52,9 @@ export class UserRegistrationService {
     
     return await this.http.get(`${this.baseUrl}/products/user/${id}`).toPromise()
       .then((data: any) => {
-        console.log("PRODUCTOS del usuario:", data);
+        // console.log("PRODUCTOS del usuario:", data);
         this.userProduct = data;
-        console.log(this.userProduct);
+        // console.log(this.userProduct);
       })
       .catch((error) => {
         console.log("EEERRROOOOROR: ", error);

@@ -9,8 +9,6 @@ import { MapInfoWindow, MapMarker, GoogleMap } from '@angular/google-maps'
 })
 export class AboutUsComponent implements OnInit {
 
-  // key: string = "AIzaSyBRoO3EB9IAD8ZFsjPgufIHTCbRlVFBx3I";
-
   // Configuración de Google Maps 
   center = {lat: 40.657221, lng: -4.696117};
   zoom = 15;

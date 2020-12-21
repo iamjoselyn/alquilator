@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/shared/services/auth.service';
+import swal from 'sweetalert';
 
 @Component({
   selector: 'app-user-login',
@@ -47,12 +48,13 @@ export class UserLoginComponent implements OnInit {
     console.log(this.formLogin);
     
     const loginResult = await this.auth.login(this.formLogin);
-    console.log('el resultado del login es', loginResult);
+    // console.log('el resultado del login es', loginResult);
 
     if (loginResult) {
       this.router.navigateByUrl('/general');
     } else {
-      alert('Usuario o contraseña incorrecto. Vuelve a intentarlo!');
+      swal("Oooops!", "Usuario o contraseña incorrectos", "error");
+      // alert('Usuario o contraseña incorrecto. Vuelve a intentarlo!');
     }
   }
 

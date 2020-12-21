@@ -1,15 +1,12 @@
 
-.card-deck {
-    margin: 2vw;
-}
+/* .card-img-top {
+    min-width: 18.19vw;
+    max-width: 20.19vw;
+    min-height: 18.19vw;
+    max-height: 20.19vw;
 
-.card {
-    min-width: 17vw;
-    margin-top: 1vw;
-    margin-bottom: 1vw;
-    max-width: 18.19vw;
+} */
 
-}
 
 .info-product {
     margin-bottom: 2.2vw;
@@ -19,13 +16,3 @@
     display: flex;    
     justify-content: center;
 }
-
-.card-img-top {
-    max-width: 18.19vw;
-    max-height: 18.19vw;
-    min-height: 18.19vw;
-
-
-}
-
-

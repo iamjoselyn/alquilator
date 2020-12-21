@@ -16,16 +16,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.categories = this.productService.categories;
-    console.log(this.categories);
+    // console.log(this.categories);
     
 
   }
   categoryRedirect(catName: string){
     this.router.navigateByUrl(`/category/${catName}`)
   }
-
-  // getCategoryPics() {
-  //   this.productService.categories
-  // }
 
 }
