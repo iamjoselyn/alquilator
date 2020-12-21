@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserRegistrationService } from 'src/app/shared/services/user-registration.service';
+import swal from "sweetalert";
 
 @Component({
   selector: 'app-user-registration',
@@ -62,18 +63,20 @@ export class UserRegistrationComponent implements OnInit {
 
   saveRegisterForm(): void {
     if(this.registrationForm.status === "INVALID"){
-      alert("Por favor, rellena los campos requeridos para contactar con el anunciante.");
+      swal("Oooops!", "Rellena todos los campos necesarios", "error");
     } else {
 
-      console.log("Todo bien: FORMULARIO: ", this.registrationForm.value);
+      // console.log("Todo bien: FORMULARIO: ", this.registrationForm.value);
   
       this.userService.register("http://localhost:3000/users", this.registrationForm.value)
         .then(data => {
           // console.log(data); 
         });
+      
+      swal("¡Bien hecho!", "Te has registrado correctamente", "success");
 
       this.registrationForm.reset();
-      // this.router.navigateByUrl("/user-area");
+      this.router.navigateByUrl("/general");
 
     }
 

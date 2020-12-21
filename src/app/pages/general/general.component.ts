@@ -11,7 +11,14 @@ export class GeneralComponent implements OnInit {
   user: any;
   userProducts: [];
   constructor( private auth: AuthService,
-                private userService: UserRegistrationService,) {}
+                private userService: UserRegistrationService,) {
+                  this.user = {
+                    firstName: "",
+                    lastName: "",
+                    email: "",
+                    province: ""
+                  }
+                }
 
   ngOnInit(): void {
     this.userData();

@@ -1,12 +1,12 @@
 
-/* .card-img-top {
-    min-width: 18.19vw;
-    max-width: 20.19vw;
+.col-md-3 {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.card-img-top {
     min-height: 18.19vw;
-    max-height: 20.19vw;
-
-} */
-
+}
 
 .info-product {
     margin-bottom: 2.2vw;
