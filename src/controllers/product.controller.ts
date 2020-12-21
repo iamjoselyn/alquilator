@@ -1,8 +1,6 @@
 import { Request, Response } from 'express';
 import mongoose from "mongoose";
 
-
-
 const ProductModel = require("../models/product.model")
 
 class ProductController {
@@ -49,7 +47,6 @@ class ProductController {
             newProduct.bookingLength = product.bookingLength;
             newProduct.userId = product.userId
             
-
             await newProduct.save();
 
             res.send("Los datos de tu producto se han guardado correctamente.")

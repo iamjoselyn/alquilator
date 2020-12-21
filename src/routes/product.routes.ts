@@ -2,6 +2,7 @@ import { Router } from "express";
 import { productController } from "../controllers/product.controller";
 import multer from 'multer';
 import path from 'path';
+import { checkJwt } from "../middlewares/checkJwt";
 
 // Multer
 const storage = multer.diskStorage({
@@ -25,13 +26,11 @@ class ProductRoutes {
         this.router.get("/product/:id", productController.getById);
         this.router.get("/user/:id", productController.getUserById);
         this.router.get("/", productController.getProducts);
-        // this.router.get("/:id/bookings", productController.getProducts);
-        // para recoger todos los mensajes que hacen referencia al productId específico
+        // this.router.get("/:id/bookings", productController.getProducts); para recoger todos los mensajes que hacen referencia al productId específico
         this.router.post("/", productController.postProducts);
-        this.router.post("/fotos", upload.array('file', 5), productController.postPics);
-        this.router.delete("/:id", productController.deleteProducts);
-        this.router.put("/:id", productController.updateProucts);
-
+        this.router.post("/fotos", [checkJwt], upload.array('file', 5), productController.postPics);
+        this.router.delete("/:id", [checkJwt], productController.deleteProducts);
+        this.router.put("/:id", [checkJwt], productController.updateProucts);
     }
 }
 

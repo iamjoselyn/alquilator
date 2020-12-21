@@ -1,12 +1,6 @@
 import { Request, Response } from "express";
 
 const ProductBooking = require("../models/product-booking.model");
-
-// mongoose.connect('mongodb+srv://belenmlt:%AG0qUfcY@DL@cluster0.xq5kj.mongodb.net/Alquilator?retryWrites=true&w=majority', 
-//                 { useNewUrlParser: true, useUnifiedTopology: true }
-//                 );
-
-
 class ProductBookingController {
     public async getBookings(req: Request, res: Response){
         try {
@@ -66,7 +60,6 @@ class ProductBookingController {
         try {
             const modifyMessage = req.body;
             const response = await ProductBooking.updateOne({_id: modifyMessage._id}, {message: modifyMessage.message});
-                            // {busca el mensaje con id (el propio que se le da alguardaro en mongoAtlas)...}, {modifica el mensaje del productBooking que tiene id x...}
 
             res.send(`El mensaje enviado al propietario ha sido modificado.`);
 

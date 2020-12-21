@@ -11,12 +11,9 @@ class UserRoutes {
         // this.router.get("/:id/products",  [checkJwt], userController.getUserProducts);
         // para coger todos los productos que haya subido el usuario con id x
         this.router.post("/", userController.postUsers);
-        this.router.delete("/", userController.deleteUsers);
-        this.router.put("/", userController.updateUsers);
-
-        // Hacemos un endpoint que devuelva el objeto usuario, filtrando en la tabla usuarios por email para traernos toda la info incluido el id de usuario
+        this.router.delete("/", [checkJwt], userController.deleteUsers);
+        this.router.put("/", [checkJwt], userController.updateUsers);
         this.router.get("/:email", userController.getUserByEmail);
-
         //User authentication
         this.router.post('/auth', userController.authUser);
     }

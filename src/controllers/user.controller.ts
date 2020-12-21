@@ -4,28 +4,11 @@ import jwt from 'jsonwebtoken';
 import data from '../config/config.json';
 
 const UserModel = require("../models/user.model");
-
-// mongoose.connect('mongodb+srv://belenmlt:%AG0qUfcY@DL@cluster0.xq5kj.mongodb.net/Alquilator?retryWrites=true&w=majority', 
-//                 { useNewUrlParser: true, useUnifiedTopology: true }
-//                 );
-
-
 class UserController {
     public async getUsers(req: Request, res: Response) {
         try {
             const allUsers = await UserModel.find()
             res.send(allUsers);
-
-        } catch (error) {
-            console.log(error);
-            res.sendStatus(404);
-        }
-    };
-
-    public async getUserProducts (req: Request, res: Response) {
-        try {
-             
-            // que recoja todos los productos publicados por (where) userId sea el que venga por param 
 
         } catch (error) {
             console.log(error);
@@ -106,8 +89,6 @@ class UserController {
             res.sendStatus(404);
         }
     };
-
-    // // No se estaba usando hasta intentar coger productos de cada usuario
 
     public async getUserByEmail(req: Request, res: Response) {
         try {

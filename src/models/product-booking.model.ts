@@ -8,8 +8,6 @@ const ProductBookingSchema = new Schema({
     phone: Number,
     message: String,
     productName: String
-    // idProduct:
-    // idUser:
     
 });
 
