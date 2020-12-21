@@ -7,6 +7,7 @@
     min-width: 17vw;
     margin-top: 1vw;
     margin-bottom: 1vw;
+    max-width: 18.19vw;
 
 }
 
@@ -17,6 +18,14 @@
 .button-container {
     display: flex;    
     justify-content: center;
+}
+
+.card-img-top {
+    max-width: 18.19vw;
+    max-height: 18.19vw;
+    min-height: 18.19vw;
+
+
 }
 
 

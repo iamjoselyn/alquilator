@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/shared/services/product.service';
 export class CategoryComponent implements OnInit {
 
   categoryName = null;
+  categoryPics = null;
   products = [];
   
   constructor( private router: ActivatedRoute,
@@ -18,22 +19,30 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
-      console.log(params);
+      // console.log(params);
       this.categoryName = params["name"];
       
       this.serviceCall()
-      
-      console.log(this.categoryName);
-      console.log(this.products);
+      // console.log(this.categoryName);
       
     });
 
+    this.router.params.subscribe((params) => {
+      // console.log(params);
+      this.categoryPics = `../../../assets/${params["name"]}.svg`;
+      
+      this.serviceCall()
+      
+      // console.log("FOTOS", this.categoryPics);
+      // console.log(this.products);
+      
+    });
   };
 
   async serviceCall() {
     await this.productService.getProductsByCatName(this.categoryName)
     this.products = this.productService.products;
-    console.log("CATEGORY COMPONENT", this.products);
+    // console.log("CATEGORY COMPONENT", this.products);
 
   };
 

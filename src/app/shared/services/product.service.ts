@@ -7,12 +7,22 @@ import { Router } from '@angular/router';
 })
 export class ProductService {
 
+  categories = [
+    {name: "Deportes", img: "../../../assets/Deportes.svg"}, 
+    {name: "Mobiliario", img: "../../../assets/Mobiliario.svg"}, 
+    {name: "Ocio", img: "../../../assets/Ocio.svg"}, 
+    {name: "Informática", img: "../../../assets/Informática.svg"},
+    {name: "Fotografía", img: "../../../assets/Fotografía.svg"},
+    {name: "Instrumentos", img: "../../../assets/Instrumentos.svg"},
+    {name: "Sonido", img: "../../../assets/Sonido.svg"},
+    {name: "Herramientas", img: "../../../assets/Herramientas.svg"}
+  
+  ]
+
+  product = [];
   products = [];
   baseUrl: string = "http://localhost:3000";
 
-  product = [];
-
-  
   constructor( private http: HttpClient,
                private router: Router ) { }
 
@@ -20,9 +30,9 @@ export class ProductService {
 
     return await this.http.get(`${this.baseUrl}/products/${catName}`).toPromise()
       .then((data: any) => {
-        console.log("Datosss", data);
+        // console.log("Datosss", data);
         this.products = data;
-        console.log(this.products)
+        // console.log(this.products)
   
       })
       .catch((error) => {
@@ -33,9 +43,9 @@ export class ProductService {
   async getProductsById(id: string) {
     return await this.http.get(`${this.baseUrl}/products/product/${id}`).toPromise()
       .then((data2: any) => {
-        console.log("PRODUCTO:", data2);
+        // console.log("PRODUCTO:", data2);
         this.product = data2
-        console.log(this.product);
+        // console.log(this.product);
       })
       .catch((error) => {
         console.log("EEERRROOOOROR: ", error);

@@ -1,6 +1,6 @@
 
 <div class="container mt-5 pt-5 mb-5">
-    <h1 class="mt-5 mb-5">{{categoryName}} <img src="../../../assets/barbell.svg" width="50"alt=""> </h1>
+    <h1 class="mt-5 mb-5">{{categoryName}} <img [src]="categoryPics" width="50"alt=""> </h1>
 
     <div class="card-deck">
         <div *ngFor="let product of this.products" class="card">
